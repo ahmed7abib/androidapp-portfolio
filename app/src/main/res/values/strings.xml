@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">Ahmed Habib - Portfolio</string>
+    <string name="ahmed_habib">Ahmed Habib</string>
+    <string name="your_email">Your Email</string>
+    <string name="message">Message</string>
+    <string name="message_from_ahmed_habib_portfolio_app">Message from Ahmed Habib Portfolio App</string>
+    <string name="no_email_app_found">No email app found</string>
+    <string name="send_message">Send Message</string>
+    <string name="contact_me">Contact Me</string>
+    <string name="_contact_me">Contact Me ?</string>
+    <string name="your_name">Your Name</string>
 </resources>

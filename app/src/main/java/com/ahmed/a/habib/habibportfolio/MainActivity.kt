@@ -10,6 +10,7 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.ahmed.a.habib.habibportfolio.features.contact_me.ContactMeScreen
 import com.ahmed.a.habib.habibportfolio.features.main.MainScreen
 import com.ahmed.a.habib.habibportfolio.features.splash.SplashScreen
 import com.ahmed.a.habib.habibportfolio.utils.theme.HabibPortfolioTheme
@@ -34,6 +35,7 @@ fun MainApp() {
             .navigationBarsPadding()
     ) {
         composable(splash_screen) { SplashScreen(navController) }
-        composable(main_screen) { MainScreen() }
+        composable(main_screen) { MainScreen(navController) }
+        composable(contact_me_screen) { ContactMeScreen() }
     }
 }
