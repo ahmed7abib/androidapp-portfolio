@@ -3,22 +3,21 @@ package com.ahmed.a.habib.habibportfolio
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.navigationBarsPadding
-import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.ahmed.a.habib.habibportfolio.features.contact_me.ContactMeScreen
-import com.ahmed.a.habib.habibportfolio.features.main.MainScreen
-import com.ahmed.a.habib.habibportfolio.features.splash.SplashScreen
+import com.ahmed.a.habib.habibportfolio.features.home.HomeScreen
 import com.ahmed.a.habib.habibportfolio.utils.theme.HabibPortfolioTheme
 
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
         setContent { HabibPortfolioTheme { MainApp() } }
     }
 }
@@ -29,13 +28,9 @@ fun MainApp() {
 
     NavHost(
         navController = navController,
-        startDestination = splash_screen,
-        modifier = Modifier
-            .statusBarsPadding()
-            .navigationBarsPadding()
+        startDestination = home_screen,
+        modifier = Modifier.navigationBarsPadding()
     ) {
-        composable(splash_screen) { SplashScreen(navController) }
-        composable(main_screen) { MainScreen(navController) }
-        composable(contact_me_screen) { ContactMeScreen() }
+        composable(home_screen) { HomeScreen(navController) }
     }
 }

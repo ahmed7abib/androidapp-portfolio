@@ -9,4 +9,8 @@
     <string name="contact_me">Contact Me</string>
     <string name="_contact_me">Contact Me ?</string>
     <string name="your_name">Your Name</string>
+    <string name="hello_i_m">Hello, I\'m</string>
+    <string name="ahmed_adel_habib">Ahmed Adel Habib</string>
+    <string name="senior_android_developer">Senior Android Developer</string>
+    <string name="my_summary">I\'m Senior Android Developer with 4+ years of experience in Kotlin and Java, holding a bachelor’s degree in computer science. Proven ability to develop robust Android applications from scratch, maintain and optimize existing codebases for enhanced performance, and efficiently troubleshoot complex issues. Expertise in modern Android development practices, including Clean Architecture, Android Jetpack, design patterns, SOLID principles, and MVVM/MVI architectures. Familiar with working on POS Devices and fintech apps. Currently working at Elsewedy Electrometer Group.</string>
 </resources>
