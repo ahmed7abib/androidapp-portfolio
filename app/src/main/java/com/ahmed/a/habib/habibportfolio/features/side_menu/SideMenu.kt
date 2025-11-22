@@ -1,4 +1,4 @@
-package com.ahmed.a.habib.habibportfolio.features.home
+package com.ahmed.a.habib.habibportfolio.features.side_menu
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
