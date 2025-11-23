@@ -12,7 +12,9 @@ composeConstraint = "1.1.1"
 navigationFragmentKtx = "2.9.5"
 navigationUiKtx = "2.9.5"
 nav_compose = "2.9.5"
-
+hilt = "2.52"
+hiltNavigationCompose = "1.2.0"
+browser = "1.9.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -35,8 +37,16 @@ androidx-navigation-ui-ktx = { group = "androidx.navigation", name = "navigation
 androidx-constraintlayout-compose = { module = "androidx.constraintlayout:constraintlayout-compose", version.ref = "composeConstraint" }
 androidx-navigation-fragment-ktx = { group = "androidx.navigation", name = "navigation-fragment-ktx", version.ref = "navigationFragmentKtx" }
 
+# Hilt Libs
+hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hilt" }
+hilt-compiler = { module = "com.google.dagger:hilt-android-compiler", version.ref = "hilt" }
+hilt-navigation-compose = { module = "androidx.hilt:hilt-navigation-compose", version.ref = "hiltNavigationCompose" }
+androidx-browser = { group = "androidx.browser", name = "browser", version.ref = "browser" }
+
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 
+# Hilt Plugin
+hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
