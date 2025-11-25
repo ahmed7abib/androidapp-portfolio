@@ -25,15 +25,13 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun MainApp() {
-    val navController = rememberNavController()
-
     NavHost(
-        navController = navController,
+        navController = rememberNavController(),
         startDestination = home_screen,
         modifier = Modifier
             .fillMaxSize()
             .navigationBarsPadding()
     ) {
-        composable(home_screen) { HomeScreen(navController) }
+        composable(home_screen) { HomeScreen() }
     }
 }

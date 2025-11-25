@@ -1,30 +1,60 @@
 package com.ahmed.a.habib.habibportfolio.presentation
 
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
-import com.ahmed.a.habib.habibportfolio.data.models.CvModel
-import com.ahmed.a.habib.habibportfolio.domain.CvDataRepo
+import com.ahmed.a.habib.habibportfolio.domain.use_cases.GetMenuItems
+import com.ahmed.a.habib.habibportfolio.domain.use_cases.GetPersonalInfo
+import com.ahmed.a.habib.habibportfolio.domain.use_cases.GetSummaryInfo
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class CvDataViewModel @Inject constructor(
-    private val cvDataRepo: CvDataRepo,
+    private val getMenuItems: GetMenuItems,
+    private val getSummaryInfo: GetSummaryInfo,
+    private val getPersonalInfo: GetPersonalInfo,
 ) : ViewModel() {
 
-    private var _cvData = MutableStateFlow<CvModel?>(null)
-    val cvData: StateFlow<CvModel?> get() = _cvData
+    val state = MutableStateFlow(UIStates())
 
     init {
-        getCvModelData()
+        onEvent(event = UserEvents.GetAllData)
     }
 
-    fun getCvModelData() = viewModelScope.launch {
-        _cvData.value = cvDataRepo.getCvData()
+    fun onEvent(event: UserEvents) {
+        when (event) {
+            UserEvents.GetAllData -> getAllData()
+            UserEvents.GetSummaryContent -> getSummary()
+            UserEvents.GetMenuItems -> getMenuItemsList()
+            UserEvents.GetPersonalInfo -> getPersonalData()
+        }
     }
 
-    fun getCvLink() = cvData.value?.cvLink
+    private fun getAllData() {
+        getSummary()
+        getPersonalData()
+        getMenuItemsList()
+    }
+
+    private fun getMenuItemsList() {
+        reduce {
+            copy(menuItems = getMenuItems())
+        }
+    }
+
+    private fun getSummary() {
+        reduce {
+            copy(summaryContent = getSummaryInfo())
+        }
+    }
+
+    private fun getPersonalData() {
+        reduce {
+            copy(personalInfo = getPersonalInfo())
+        }
+    }
+
+    private fun reduce(updateState: UIStates.() -> UIStates) {
+        state.value = updateState(state.value)
+    }
 }

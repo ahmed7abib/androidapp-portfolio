@@ -5,8 +5,11 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
@@ -16,78 +19,34 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.ahmed.a.habib.habibportfolio.R
-import com.ahmed.a.habib.habibportfolio.utils.commonUI.HorizontalSpace
-import com.ahmed.a.habib.habibportfolio.utils.commonUI.VerticalSpace
+import com.ahmed.a.habib.habibportfolio.domain.models.CvSection
+import com.ahmed.a.habib.habibportfolio.domain.models.MenuItemDto
 
 
 @Composable
 fun SideMenu(
     offsetX: Float,
+    menuItems: List<MenuItemDto>,
     modifier: Modifier = Modifier,
+    onClick: (CvSection) -> Unit,
 ) {
 
-    Column(
+    LazyColumn(
         verticalArrangement = Arrangement.Top,
-        modifier = modifier.padding(vertical = 62.dp)
+        modifier = modifier.padding(vertical = 48.dp)
     ) {
-
-        DrawMenuItem(
-            title = "Home",
-            offsetX = offsetX,
-            icon = R.drawable.home,
-        )
-
-        VerticalSpace(16.dp)
-
-        DrawMenuItem(
-            title = "Summary",
-            offsetX = offsetX,
-            icon = R.drawable.home,
-        )
-
-        VerticalSpace(16.dp)
-
-        DrawMenuItem(
-            title = "Experience",
-            offsetX = offsetX,
-            icon = R.drawable.home,
-        )
-
-        VerticalSpace(16.dp)
-
-        DrawMenuItem(
-            title = "Projects",
-            offsetX = offsetX,
-            icon = R.drawable.home,
-        )
-
-        VerticalSpace(16.dp)
-
-        DrawMenuItem(
-            title = "Skills",
-            offsetX = offsetX,
-            icon = R.drawable.home,
-        )
-
-        VerticalSpace(16.dp)
-
-        DrawMenuItem(
-            title = "Education",
-            offsetX = offsetX,
-            icon = R.drawable.home,
-        )
-
-        VerticalSpace(16.dp)
-
-        DrawMenuItem(
-            title = "Contact Info",
-            offsetX = offsetX,
-            icon = R.drawable.home,
-        )
-
+        items(menuItems) { item ->
+            DrawMenuItem(
+                offsetX = offsetX,
+                icon = item.icon,
+                title = stringResource(item.title),
+            ) {
+                onClick(item.cvSection)
+            }
+        }
     }
 }
 
@@ -96,7 +55,7 @@ fun DrawMenuItem(
     icon: Int,
     title: String,
     offsetX: Float,
-    onClick: () -> Unit = {},
+    onClick: () -> Unit,
 ) {
 
     val screenWidth = LocalConfiguration.current.screenWidthDp.dp
@@ -113,7 +72,11 @@ fun DrawMenuItem(
         verticalArrangement = Arrangement.Center
     ) {
         Row(
-            verticalAlignment = Alignment.CenterVertically
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(50.dp),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(12.dp)
         ) {
             Icon(
                 tint = Color.Black,
@@ -122,16 +85,12 @@ fun DrawMenuItem(
                 modifier = Modifier.size(24.dp)
             )
 
-            HorizontalSpace(12.dp)
-
             Text(
                 text = title,
                 fontSize = 16.sp,
                 color = Color.Black
             )
         }
-
-        VerticalSpace(8.dp)
 
         HorizontalDivider(color = Color.LightGray, thickness = 1.dp)
     }

@@ -1,0 +1,8 @@
+package com.ahmed.a.habib.habibportfolio.data.models
+
+
+data class SkillsSection(
+    val sectionName: Int,
+    val sectionIcon: Int,
+    val skills: Pair<String, List<String>>,
+)
