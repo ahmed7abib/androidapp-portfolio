@@ -1,4 +1,4 @@
-package com.ahmed.a.habib.habibportfolio.presentation.utils
+package com.ahmed.a.habib.habibportfolio.presentation.utils.mvi
 
 sealed class UserEvents {
     object GetAllData : UserEvents()
