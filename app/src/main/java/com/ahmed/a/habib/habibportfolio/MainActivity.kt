@@ -37,7 +37,6 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.ahmed.a.habib.habibportfolio.domain.models.CvSection
 import com.ahmed.a.habib.habibportfolio.presentation.CvDataViewModel
 import com.ahmed.a.habib.habibportfolio.presentation.home.HomeScreen
 import com.ahmed.a.habib.habibportfolio.presentation.side_menu.SideMenu
@@ -108,28 +107,9 @@ fun MainApp(viewModel: CvDataViewModel = hiltViewModel()) {
                 modifier = Modifier
                     .fillMaxSize()
                     .background(Color.White)
-            ) { navTo ->
+            ) { navigator ->
                 isMenuOpen = false
-
-                when (navTo) {
-                    CvSection.HOME -> {
-                        navController.navigate(home_screen) {
-                            popUpTo(0) { inclusive = true }
-                        }
-                    }
-
-                    CvSection.SUMMARY -> {
-                        navController.navigate(summary_screen) {
-                            popUpTo(0) { inclusive = true }
-                        }
-                    }
-
-                    CvSection.SKILLS -> {}
-                    CvSection.PROJECTS -> {}
-                    CvSection.EDUCATION -> {}
-                    CvSection.EXPERIENCE -> {}
-                    CvSection.CERTIFICATES -> {}
-                }
+                navigator.navigateTo(navController)
             }
 
             NavHost(

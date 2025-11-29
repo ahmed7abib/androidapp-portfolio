@@ -22,8 +22,8 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.ahmed.a.habib.habibportfolio.domain.models.CvSection
 import com.ahmed.a.habib.habibportfolio.domain.models.MenuItemDto
+import com.ahmed.a.habib.habibportfolio.presentation.utils.navigation.INavigator
 
 
 @Composable
@@ -31,7 +31,7 @@ fun SideMenu(
     offsetX: Float,
     menuItems: List<MenuItemDto>,
     modifier: Modifier = Modifier,
-    onClick: (CvSection) -> Unit,
+    navigator: (INavigator) -> Unit,
 ) {
 
     LazyColumn(
@@ -44,7 +44,7 @@ fun SideMenu(
                 icon = item.icon,
                 title = stringResource(item.title),
             ) {
-                onClick(item.cvSection)
+                navigator(item.navigator)
             }
         }
     }
