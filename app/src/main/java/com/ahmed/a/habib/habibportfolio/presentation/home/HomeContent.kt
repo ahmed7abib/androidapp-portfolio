@@ -30,7 +30,6 @@ import com.ahmed.a.habib.habibportfolio.data.models.PersonalInfoModel
 import com.ahmed.a.habib.habibportfolio.utils.commonUI.VerticalSpace
 import com.ahmed.a.habib.habibportfolio.utils.commonUI.extraBold
 import com.ahmed.a.habib.habibportfolio.utils.commonUI.medium
-import com.ahmed.a.habib.habibportfolio.utils.openLink
 import com.ahmed.a.habib.habibportfolio.utils.showToast
 import com.ahmed.a.habib.habibportfolio.utils.theme.DarkBlue
 
@@ -50,7 +49,7 @@ fun HomeScreen(
             if (link == null) {
                 context.showToast(context.getString(R.string.invalid_link))
             } else {
-                context.openLink(context.getString(link))
+                // context.openLink(context.getString(link))
             }
         },
         isExploreMoreBtnClicked = { openSideMenu() }

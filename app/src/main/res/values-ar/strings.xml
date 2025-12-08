@@ -7,7 +7,7 @@
     <string name="full_name">أحمد عادل حبيب</string>
     <string name="faculty_cs">Faculty of Computer Science and Informatics.</string>
     <string name="university_benha">Banha University</string>
-    <string name="cs_study_date">09/2014 - 07/2018</string>
+    <string name="cs_study_date">09/2014 – 07/2018</string>
     <string name="cv_link">https://drive.google.com/file/d/1hpocevqOWbAz4CUtfCnW_s2r9HfmlHTd/view</string>
     <string name="summary">I\'m Senior Android Developer with 4+ years of experience in Kotlin and Java, holding a bachelor\'s degree in computer science. Proven ability to develop robust Android applications from scratch, maintain and optimize existing codebases for enhanced performance, and efficiently troubleshoot complex issues. Expertise in modern Android development practices, including Clean Architecture, Android Jetpack, design patterns, SOLID principles, and MVVM/MVI architectures. Familiar with working on POS Devices and fintech apps. Currently working at Elsewedy Electrometer Group.</string>
     <string name="degree_cs">Bachelor\'s degree in Computers and Information Systems</string>
