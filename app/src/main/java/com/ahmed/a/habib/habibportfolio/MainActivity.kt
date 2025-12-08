@@ -58,11 +58,10 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun MainApp(viewModel: CvDataViewModel = hiltViewModel()) {
 
-    val navController = rememberNavController()
     val state by viewModel.state.collectAsState()
+    val summaryContent = state.summaryContent
     val menuItems = state.menuItems
     val personalInfo = state.personalInfo
-    val summaryContent = state.summaryContent
 
     var isMenuOpen by remember { mutableStateOf(false) }
     val transition = updateTransition(targetState = isMenuOpen)
@@ -74,6 +73,8 @@ fun MainApp(viewModel: CvDataViewModel = hiltViewModel()) {
     val toolbarColor = if (isMenuOpen) Color.White else Color.Black
     val menuIconColor = if (isMenuOpen) Color.Black else Color.White
     val menuIcon = if (isMenuOpen) R.drawable.close_icon else R.drawable.side_medu
+
+    val navController = rememberNavController()
 
     Column(
         modifier = Modifier.fillMaxSize(),
@@ -100,7 +101,6 @@ fun MainApp(viewModel: CvDataViewModel = hiltViewModel()) {
         }
 
         Box {
-
             SideMenu(
                 offsetX = offsetX.value,
                 menuItems = menuItems,

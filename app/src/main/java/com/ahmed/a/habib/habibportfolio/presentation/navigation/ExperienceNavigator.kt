@@ -1,4 +1,4 @@
-package com.ahmed.a.habib.habibportfolio.presentation.utils.navigation
+package com.ahmed.a.habib.habibportfolio.presentation.navigation
 
 import androidx.navigation.NavHostController
 import com.ahmed.a.habib.habibportfolio.experience_screen

@@ -1,4 +1,4 @@
-package com.ahmed.a.habib.habibportfolio.presentation.utils.mvi
+package com.ahmed.a.habib.habibportfolio.presentation.ui_states
 
 import com.ahmed.a.habib.habibportfolio.data.models.PersonalInfoModel
 import com.ahmed.a.habib.habibportfolio.domain.models.MenuItemDto

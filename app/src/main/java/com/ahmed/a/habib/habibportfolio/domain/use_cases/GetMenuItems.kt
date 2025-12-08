@@ -2,13 +2,13 @@ package com.ahmed.a.habib.habibportfolio.domain.use_cases
 
 import com.ahmed.a.habib.habibportfolio.domain.CvDataRepo
 import com.ahmed.a.habib.habibportfolio.domain.models.MenuItemDto
-import com.ahmed.a.habib.habibportfolio.presentation.utils.navigation.CertificatesNavigator
-import com.ahmed.a.habib.habibportfolio.presentation.utils.navigation.EducationNavigator
-import com.ahmed.a.habib.habibportfolio.presentation.utils.navigation.ExperienceNavigator
-import com.ahmed.a.habib.habibportfolio.presentation.utils.navigation.HomeNavigator
-import com.ahmed.a.habib.habibportfolio.presentation.utils.navigation.ProjectsNavigator
-import com.ahmed.a.habib.habibportfolio.presentation.utils.navigation.SkillsNavigator
-import com.ahmed.a.habib.habibportfolio.presentation.utils.navigation.SummaryNavigator
+import com.ahmed.a.habib.habibportfolio.presentation.navigation.CertificatesNavigator
+import com.ahmed.a.habib.habibportfolio.presentation.navigation.EducationNavigator
+import com.ahmed.a.habib.habibportfolio.presentation.navigation.ExperienceNavigator
+import com.ahmed.a.habib.habibportfolio.presentation.navigation.HomeNavigator
+import com.ahmed.a.habib.habibportfolio.presentation.navigation.ProjectsNavigator
+import com.ahmed.a.habib.habibportfolio.presentation.navigation.SkillsNavigator
+import com.ahmed.a.habib.habibportfolio.presentation.navigation.SummaryNavigator
 import javax.inject.Inject
 
 class GetMenuItems @Inject constructor(private val repo: CvDataRepo) {
