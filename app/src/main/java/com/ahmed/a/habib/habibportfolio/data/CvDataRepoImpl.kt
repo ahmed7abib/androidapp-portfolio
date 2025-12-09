@@ -1,6 +1,5 @@
 package com.ahmed.a.habib.habibportfolio.data
 
-
 import com.ahmed.a.habib.habibportfolio.R
 import com.ahmed.a.habib.habibportfolio.data.models.CertificateSection
 import com.ahmed.a.habib.habibportfolio.data.models.CvModel
@@ -10,6 +9,7 @@ import com.ahmed.a.habib.habibportfolio.data.models.HomeSection
 import com.ahmed.a.habib.habibportfolio.data.models.PersonalInfoModel
 import com.ahmed.a.habib.habibportfolio.data.models.ProjectsSection
 import com.ahmed.a.habib.habibportfolio.data.models.SkillsSection
+import com.ahmed.a.habib.habibportfolio.data.models.SummaryContent
 import com.ahmed.a.habib.habibportfolio.data.models.SummarySection
 import com.ahmed.a.habib.habibportfolio.domain.CvDataRepo
 
@@ -23,7 +23,7 @@ class CvDataRepoImpl : CvDataRepo {
             personalInfo = PersonalInfoModel(
                 title = R.string.title,
                 cvLink = R.string.cv_link,
-                fullName = R.string.full_name
+                fullNameResId = R.string.full_name
             )
         )
 
@@ -36,7 +36,10 @@ class CvDataRepoImpl : CvDataRepo {
         val summary = SummarySection(
             sectionName = R.string.summary_label,
             sectionIcon = R.drawable.home,
-            summaryContent = R.string.summary
+            summaryContent = SummaryContent(
+                fullSummary = R.string.summary,
+                targetToBold = R.string.target_to_bold
+            )
         )
 
         val projects = ProjectsSection(

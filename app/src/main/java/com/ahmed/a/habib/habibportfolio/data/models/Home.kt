@@ -10,5 +10,5 @@ data class HomeSection(
 data class PersonalInfoModel(
     val title: Int,
     val cvLink: Int,
-    val fullName: Int,
+    val fullNameResId: Int,
 )

@@ -30,6 +30,7 @@ import com.ahmed.a.habib.habibportfolio.data.models.PersonalInfoModel
 import com.ahmed.a.habib.habibportfolio.utils.commonUI.VerticalSpace
 import com.ahmed.a.habib.habibportfolio.utils.commonUI.extraBold
 import com.ahmed.a.habib.habibportfolio.utils.commonUI.medium
+import com.ahmed.a.habib.habibportfolio.utils.openWebPage
 import com.ahmed.a.habib.habibportfolio.utils.showToast
 import com.ahmed.a.habib.habibportfolio.utils.theme.DarkBlue
 
@@ -45,11 +46,12 @@ fun HomeScreen(
     HomeContent(
         personalInfo = personalInfo,
         isDownloadCvBtnClicked = {
-            val link = personalInfo?.cvLink
-            if (link == null) {
-                context.showToast(context.getString(R.string.invalid_link))
+            val url = personalInfo?.cvLink
+            if (url == null) {
+                val errorMessage = context.getString(R.string.invalid_link)
+                context.showToast(errorMessage)
             } else {
-                // context.openLink(context.getString(link))
+                context.openWebPage(context.getString(url))
             }
         },
         isExploreMoreBtnClicked = { openSideMenu() }
@@ -70,7 +72,6 @@ private fun HomeContent(
             .fillMaxSize()
             .background(Color.Black)
     ) {
-
         Image(
             contentDescription = null,
             modifier = Modifier.align(Alignment.BottomStart),
@@ -80,7 +81,7 @@ private fun HomeContent(
         Column(modifier = Modifier.padding(24.dp)) {
 
             Text(
-                text = context.getWelcomeMsg(personalInfo?.fullName),
+                text = context.getWelcomeMsg(personalInfo?.fullNameResId),
                 style = extraBold(fontSize = 32.sp, fontColor = Color.White)
             )
 
@@ -125,7 +126,7 @@ private fun HomeContent(
     }
 }
 
-private fun Context.getWelcomeMsg(str: Int?): String {
+fun Context.getWelcomeMsg(str: Int?): String {
     if (str == null) return getString(R.string.hello_dear)
     return "${getString(R.string.hello_i_m)}\n${getString(str)}"
 }

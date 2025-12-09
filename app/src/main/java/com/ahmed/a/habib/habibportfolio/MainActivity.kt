@@ -31,14 +31,16 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.graphics.graphicsLayer
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
-import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.ahmed.a.habib.habibportfolio.presentation.CvDataViewModel
 import com.ahmed.a.habib.habibportfolio.presentation.home.HomeScreen
+import com.ahmed.a.habib.habibportfolio.presentation.home.getWelcomeMsg
 import com.ahmed.a.habib.habibportfolio.presentation.side_menu.SideMenu
 import com.ahmed.a.habib.habibportfolio.presentation.summary.SummaryScreen
 import com.ahmed.a.habib.habibportfolio.utils.theme.HabibPortfolioTheme
@@ -62,6 +64,8 @@ fun MainApp(viewModel: CvDataViewModel = hiltViewModel()) {
     val summaryContent = state.summaryContent
     val menuItems = state.menuItems
     val personalInfo = state.personalInfo
+
+    val context = LocalContext.current
 
     var isMenuOpen by remember { mutableStateOf(false) }
     val transition = updateTransition(targetState = isMenuOpen)
@@ -101,15 +105,17 @@ fun MainApp(viewModel: CvDataViewModel = hiltViewModel()) {
         }
 
         Box {
-            SideMenu(
-                offsetX = offsetX.value,
-                menuItems = menuItems,
-                modifier = Modifier
-                    .fillMaxSize()
-                    .background(Color.White)
-            ) { navigator ->
-                isMenuOpen = false
-                navigator.navigateTo(navController)
+            if (isMenuOpen) {
+                SideMenu(
+                    offsetX = offsetX.value,
+                    menuItems = menuItems,
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .background(Color.White)
+                ) { navigator ->
+                    isMenuOpen = false
+                    navigator.navigateTo(navController)
+                }
             }
 
             NavHost(
@@ -123,15 +129,20 @@ fun MainApp(viewModel: CvDataViewModel = hiltViewModel()) {
                         scaleX = scale
                         scaleY = scale
                         translationX = offsetX.toPx()
-                        shadowElevation = if (isMenuOpen) 16f else 0f
                         shape = RoundedCornerShape(radius)
+                        shadowElevation = if (isMenuOpen) 16f else 0f
                     }
             ) {
                 composable(home_screen) {
                     HomeScreen(personalInfo = personalInfo) { isMenuOpen = true }
                 }
 
-                composable(summary_screen) { SummaryScreen(summaryContent) }
+                composable(summary_screen) {
+                    SummaryScreen(
+                        summaryContent = summaryContent,
+                        welcomeMessage = context.getWelcomeMsg(personalInfo?.fullNameResId),
+                    )
+                }
             }
         }
     }

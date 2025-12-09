@@ -64,11 +64,11 @@ fun DrawMenuItem(
     Column(
         modifier = Modifier
             .fillMaxWidth()
-            .clickable { onClick() }
             .padding(
                 start = 16.dp,
-                end = remainingSpace,
-            ),
+                end = remainingSpace
+            )
+            .clickable { onClick() },
         verticalArrangement = Arrangement.Center
     ) {
         Row(

@@ -4,11 +4,10 @@ import androidx.lifecycle.ViewModel
 import com.ahmed.a.habib.habibportfolio.domain.use_cases.GetMenuItems
 import com.ahmed.a.habib.habibportfolio.domain.use_cases.GetPersonalInfo
 import com.ahmed.a.habib.habibportfolio.domain.use_cases.GetSummaryInfo
-import com.ahmed.a.habib.habibportfolio.presentation.ui_states.UIStates
-import com.ahmed.a.habib.habibportfolio.presentation.ui_states.UserEvents
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import javax.inject.Inject
+
 
 @HiltViewModel
 class CvDataViewModel @Inject constructor(
@@ -40,19 +39,19 @@ class CvDataViewModel @Inject constructor(
 
     private fun getMenuItemsList() {
         reduce {
-            UIStates(menuItems = getMenuItems())
+            copy(menuItems = getMenuItems())
         }
     }
 
     private fun getSummary() {
         reduce {
-            UIStates(summaryContent = getSummaryInfo())
+            copy(summaryContent = getSummaryInfo())
         }
     }
 
     private fun getPersonalData() {
         reduce {
-            UIStates(personalInfo = getPersonalInfo())
+            copy(personalInfo = getPersonalInfo())
         }
     }
 

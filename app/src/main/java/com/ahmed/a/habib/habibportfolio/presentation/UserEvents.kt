@@ -1,4 +1,4 @@
-package com.ahmed.a.habib.habibportfolio.presentation.ui_states
+package com.ahmed.a.habib.habibportfolio.presentation
 
 sealed class UserEvents {
     object GetAllData : UserEvents()
