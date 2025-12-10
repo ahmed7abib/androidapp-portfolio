@@ -3,6 +3,7 @@ package com.ahmed.a.habib.habibportfolio.presentation
 import androidx.lifecycle.ViewModel
 import com.ahmed.a.habib.habibportfolio.domain.use_cases.GetMenuItems
 import com.ahmed.a.habib.habibportfolio.domain.use_cases.GetPersonalInfo
+import com.ahmed.a.habib.habibportfolio.domain.use_cases.GetProjects
 import com.ahmed.a.habib.habibportfolio.domain.use_cases.GetSummaryInfo
 import com.ahmed.a.habib.habibportfolio.domain.use_cases.GetWorkExperience
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -12,6 +13,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class CvDataViewModel @Inject constructor(
+    private val getProjects: GetProjects,
     private val getMenuItems: GetMenuItems,
     private val getSummaryInfo: GetSummaryInfo,
     private val getPersonalInfo: GetPersonalInfo,
@@ -27,6 +29,7 @@ class CvDataViewModel @Inject constructor(
     fun onEvent(event: UserEvents) {
         when (event) {
             UserEvents.GetAllData -> getAllData()
+            UserEvents.GetProjects -> getProjectsData()
             UserEvents.GetSummaryContent -> getSummary()
             UserEvents.GetMenuItems -> getMenuItemsList()
             UserEvents.GetPersonalInfo -> getPersonalData()
@@ -37,6 +40,7 @@ class CvDataViewModel @Inject constructor(
     private fun getAllData() {
         getSummary()
         getPersonalData()
+        getProjectsData()
         getMenuItemsList()
         getWorkExperienceData()
     }
@@ -51,6 +55,10 @@ class CvDataViewModel @Inject constructor(
 
     private fun getPersonalData() {
         reduce { copy(personalInfo = getPersonalInfo()) }
+    }
+
+    private fun getProjectsData() {
+        reduce { copy(projects = getProjects()) }
     }
 
     private fun getWorkExperienceData() {

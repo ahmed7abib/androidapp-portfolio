@@ -10,4 +10,5 @@ data class ProjectModel(
     val imageResId: Int,
     val projectNameResId: Int,
     val descriptionResId: Int,
+    val programingLangResId: Int,
 )

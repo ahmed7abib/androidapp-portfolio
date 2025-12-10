@@ -6,9 +6,9 @@ import androidx.compose.ui.text.font.FontWeight
 import com.ahmed.a.habib.habibportfolio.R
 
 val englishFontFamily = FontFamily(
-    Font(R.font.arimamadurai_light, FontWeight.Light),
-    Font(R.font.arimamadurai_regular, FontWeight.Normal),
-    Font(R.font.arimamadurai_medium, FontWeight.Medium),
-    Font(R.font.arimamadurai_bold, FontWeight.Bold),
-    Font(R.font.arimamadurai_extrabold, FontWeight.ExtraBold),
+    Font(R.font.arimamadurai_light),
+    Font(R.font.arimamadurai_regular),
+    Font(R.font.arimamadurai_medium),
+    Font(R.font.arimamadurai_bold),
+    Font(R.font.arimamadurai_extrabold),
 )

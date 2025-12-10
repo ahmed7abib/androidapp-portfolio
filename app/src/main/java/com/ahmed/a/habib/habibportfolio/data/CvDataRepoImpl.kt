@@ -8,6 +8,7 @@ import com.ahmed.a.habib.habibportfolio.data.models.ExperienceModel
 import com.ahmed.a.habib.habibportfolio.data.models.ExperienceSection
 import com.ahmed.a.habib.habibportfolio.data.models.HomeSection
 import com.ahmed.a.habib.habibportfolio.data.models.PersonalInfoModel
+import com.ahmed.a.habib.habibportfolio.data.models.ProjectModel
 import com.ahmed.a.habib.habibportfolio.data.models.ProjectsSection
 import com.ahmed.a.habib.habibportfolio.data.models.SkillsSection
 import com.ahmed.a.habib.habibportfolio.data.models.SummaryContent
@@ -67,16 +68,71 @@ class CvDataRepoImpl : CvDataRepo {
             )
         )
 
+        val projects = ProjectsSection(
+            sectionNameResId = R.string.projects,
+            sectionIconResId = R.drawable.home,
+            projects = listOf(
+                ProjectModel(
+                    imageResId = R.drawable.meterops,
+                    projectNameResId = R.string.meter_ops,
+                    programingLangResId = R.string.kotlin,
+                    descriptionResId = R.string.meterops_description,
+                ),
+                ProjectModel(
+                    imageResId = R.drawable.azka,
+                    projectNameResId = R.string.azka_pay,
+                    programingLangResId = R.string.kotlin,
+                    descriptionResId = R.string.azka_pay_description,
+                ),
+                ProjectModel(
+                    projectNameResId = R.string.scu,
+                    imageResId = R.drawable.default_proj,
+                    programingLangResId = R.string.java,
+                    descriptionResId = R.string.scu_description,
+                ),
+                ProjectModel(
+                    imageResId = R.drawable.nano_jobs,
+                    projectNameResId = R.string.nano_jobs,
+                    programingLangResId = R.string.flutter,
+                    descriptionResId = R.string.nano_jobs_description,
+                ),
+                ProjectModel(
+                    projectNameResId = R.string.ecash,
+                    imageResId = R.drawable.default_proj,
+                    programingLangResId = R.string.kotlin,
+                    descriptionResId = R.string.ecash_description,
+                ),
+                ProjectModel(
+                    imageResId = R.drawable.skep,
+                    projectNameResId = R.string.skep_home,
+                    programingLangResId = R.string.kotlin,
+                    descriptionResId = R.string.skep_description,
+                ),
+                ProjectModel(
+                    imageResId = R.drawable.default_proj,
+                    projectNameResId = R.string.ethiopia,
+                    programingLangResId = R.string.java,
+                    descriptionResId = R.string.ethiopia_description,
+                ),
+                ProjectModel(
+                    imageResId = R.drawable.teamknot,
+                    projectNameResId = R.string.teamknot,
+                    programingLangResId = R.string.kotlin,
+                    descriptionResId = R.string.teamknot_description,
+                ),
+                ProjectModel(
+                    imageResId = R.drawable.default_proj,
+                    projectNameResId = R.string.biut,
+                    programingLangResId = R.string.kotlin,
+                    descriptionResId = R.string.biut_description,
+                )
+            )
+        )
+
         val skills = SkillsSection(
             sectionNameResId = R.string.skills,
             sectionIconResId = R.drawable.home,
             skillsResId = 1 to emptyList()
-        )
-
-        val projects = ProjectsSection(
-            sectionNameResId = R.string.projects,
-            sectionIconResId = R.drawable.home,
-            projects = emptyList()
         )
 
         val education = EducationSection(

@@ -15,7 +15,6 @@ fun light(
 ) = TextStyle(
     color = fontColor,
     fontSize = fontSize,
-    fontWeight = FontWeight.Light,
     fontFamily = englishFontFamily,
     textDecoration = textDecoration
 )
@@ -27,7 +26,6 @@ fun regular(
 ) = TextStyle(
     color = fontColor,
     fontSize = fontSize,
-    fontWeight = FontWeight.Normal,
     fontFamily = englishFontFamily,
     textDecoration = textDecoration
 )
@@ -39,13 +37,12 @@ fun medium(
 ) = TextStyle(
     color = fontColor,
     fontSize = fontSize,
-    fontWeight = FontWeight.Medium,
     fontFamily = englishFontFamily,
     textDecoration = textDecoration
 )
 
 fun bold(
-    fontSize: TextUnit = 22.sp,
+    fontSize: TextUnit = 24.sp,
     fontColor: Color = Color.Unspecified,
     textDecoration: TextDecoration? = null,
 ) = TextStyle(

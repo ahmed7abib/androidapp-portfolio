@@ -4,9 +4,12 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
@@ -14,15 +17,16 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.ahmed.a.habib.habibportfolio.R
 import com.ahmed.a.habib.habibportfolio.data.models.SummaryContent
+import com.ahmed.a.habib.habibportfolio.presentation.shared.SectionHeader
 import com.ahmed.a.habib.habibportfolio.utils.commonUI.VerticalSpace
-import com.ahmed.a.habib.habibportfolio.utils.commonUI.bold
-import com.ahmed.a.habib.habibportfolio.utils.commonUI.regular
+import com.ahmed.a.habib.habibportfolio.utils.commonUI.medium
 import com.ahmed.a.habib.habibportfolio.utils.theme.LightGray
 
 
 @Composable
-fun SummaryScreen(summaryContent: SummaryContent?, welcomeMessage: String) {
+fun SummaryScreen(summaryContent: SummaryContent?) {
 
     if (summaryContent == null) return
 
@@ -42,7 +46,13 @@ fun SummaryScreen(summaryContent: SummaryContent?, welcomeMessage: String) {
             .padding(24.dp)
     ) {
 
-        Text(text = welcomeMessage, style = bold(fontSize = 32.sp))
+        SectionHeader(
+            lineWidth = 50,
+            title = stringResource(R.string.summary_label),
+            modifier = Modifier
+                .wrapContentSize()
+                .align(Alignment.CenterHorizontally)
+        )
 
         VerticalSpace(8.dp)
 
@@ -52,8 +62,9 @@ fun SummaryScreen(summaryContent: SummaryContent?, welcomeMessage: String) {
                 if (startIndex >= 0) {
                     addStyle(
                         style = SpanStyle(
-                            fontSize = 18.sp,
+                            fontSize = 20.sp,
                             fontWeight = FontWeight.Bold,
+                            color = Color.Black,
                             textDecoration = TextDecoration.Underline
                         ),
                         start = startIndex,
@@ -61,7 +72,7 @@ fun SummaryScreen(summaryContent: SummaryContent?, welcomeMessage: String) {
                     )
                 }
             },
-            style = regular()
+            style = medium(fontColor = Color.Gray)
         )
     }
 }

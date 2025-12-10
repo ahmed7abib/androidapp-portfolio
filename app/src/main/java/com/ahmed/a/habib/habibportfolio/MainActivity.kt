@@ -31,7 +31,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.graphics.graphicsLayer
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
@@ -41,11 +40,12 @@ import androidx.navigation.compose.rememberNavController
 import com.ahmed.a.habib.habibportfolio.presentation.CvDataViewModel
 import com.ahmed.a.habib.habibportfolio.presentation.experience.ExperienceScreen
 import com.ahmed.a.habib.habibportfolio.presentation.home.HomeScreen
-import com.ahmed.a.habib.habibportfolio.presentation.home.getWelcomeMsg
+import com.ahmed.a.habib.habibportfolio.presentation.projects.ProjectsScreen
 import com.ahmed.a.habib.habibportfolio.presentation.side_menu.SideMenu
 import com.ahmed.a.habib.habibportfolio.presentation.summary.SummaryScreen
 import com.ahmed.a.habib.habibportfolio.utils.experience_screen
 import com.ahmed.a.habib.habibportfolio.utils.home_screen
+import com.ahmed.a.habib.habibportfolio.utils.projects_screen
 import com.ahmed.a.habib.habibportfolio.utils.summary_screen
 import com.ahmed.a.habib.habibportfolio.utils.theme.HabibPortfolioTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -64,9 +64,8 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun MainApp(viewModel: CvDataViewModel = hiltViewModel()) {
 
-    val context = LocalContext.current
-
     val state by viewModel.state.collectAsState()
+    val projects = state.projects
     val menuItems = state.menuItems
     val personalInfo = state.personalInfo
     val summaryContent = state.summaryContent
@@ -143,14 +142,15 @@ fun MainApp(viewModel: CvDataViewModel = hiltViewModel()) {
                 }
 
                 composable(summary_screen) {
-                    SummaryScreen(
-                        summaryContent = summaryContent,
-                        welcomeMessage = context.getWelcomeMsg(personalInfo?.fullNameResId),
-                    )
+                    SummaryScreen(summaryContent = summaryContent)
                 }
 
                 composable(experience_screen) {
                     ExperienceScreen(experience = workExperience)
+                }
+
+                composable(projects_screen) {
+                    ProjectsScreen(proModels = projects)
                 }
             }
         }

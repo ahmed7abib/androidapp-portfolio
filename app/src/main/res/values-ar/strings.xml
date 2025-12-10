@@ -38,6 +38,28 @@
     <string name="skep_company">Skep Solutions</string>
     <string name="elsewedy_company">El Sewedy Electrometer Group</string>
     <string name="work_experience">Work Experience</string>
+    <string name="present">Present</string>
+    <string name="java">Java</string>
+    <string name="meter_ops">MeterOps</string>
+    <string name="meterops_description">A complete workforce management system for smart meter field operations. Enables assigning technicians, tracking meter installations and replacements, with Google Maps integration.</string>
+    <string name="kotlin">Kotlin</string>
+    <string name="azka_pay">Azka Pay</string>
+    <string name="azka_pay_description">A mobile payment platform for utilities including electricity, water, gas, telecom, and internet. Features NFC-based cardless charging for smart meters and secure payment workflows.</string>
+    <string name="scu">Sewedy Card Utility (SCU)</string>
+    <string name="scu_description">A modular Android system for reading and writing to all types of Elsewedy smart cards used in meter charging and firmware updates.</string>
+    <string name="nano_jobs">NanoJobs</string>
+    <string name="flutter">Flutter</string>
+    <string name="nano_jobs_description">A Cross-platform app connecting users with professional nursing services for in-home, post-surgery, and elderly care. Users can browse nurse profiles, check qualifications, schedule appointments, make secure payments, and benefit from real-time notifications and a rating system.</string>
+    <string name="ecash">E-Cash</string>
+    <string name="ecash_description">Used by companies like TAQA, Petrotrade, and NatGas for gas card charging and bill payments via NFC and RFID handheld devices.</string>
+    <string name="skep_home"><![CDATA[Skep Home & Skep Pro]]></string>
+    <string name="skep_description">On-demand home cleaning services across Canada, featuring online payments via Stripe, built with scalable and secure architecture.</string>
+    <string name="ethiopia">Ethiopia Charging Tool</string>
+    <string name="ethiopia_description">An Android Application Enables Ethiopian Electricity companies to manage meter recharges via chip or RFID, supporting both local and remote charging.</string>
+    <string name="teamknot">TeamKnot</string>
+    <string name="teamknot_description">schedules, event dates, make invoice payments, and communicate via in-app messaging.</string>
+    <string name="biut">BIUT</string>
+    <string name="biut_description">Property booking app in Saudi Arabia for chalets, apartments, and farms, featuring online payments via Moyasar and automated payouts through Stripe.</string>
 
     <array name="senior_responsibilities">
         <item>Led the development of MeterOps and Azka Pay Apps from concept to release, following
