@@ -46,7 +46,7 @@ fun HomeScreen(
     HomeContent(
         personalInfo = personalInfo,
         isDownloadCvBtnClicked = {
-            val url = personalInfo?.cvLink
+            val url = personalInfo?.cvLinkResId
             if (url == null) {
                 val errorMessage = context.getString(R.string.invalid_link)
                 context.showToast(errorMessage)
@@ -89,7 +89,7 @@ private fun HomeContent(
 
             Text(
                 style = medium(fontColor = Color.White),
-                text = context.getTitle(personalInfo?.title)
+                text = context.getTitle(personalInfo?.titleResId)
             )
 
             VerticalSpace(32.dp)

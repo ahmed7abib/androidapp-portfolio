@@ -5,4 +5,5 @@ sealed class UserEvents {
     object GetMenuItems : UserEvents()
     object GetPersonalInfo : UserEvents()
     object GetSummaryContent : UserEvents()
+    object GetWorkExperience : UserEvents()
 }

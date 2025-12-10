@@ -2,13 +2,13 @@ package com.ahmed.a.habib.habibportfolio.data.models
 
 
 data class HomeSection(
-    val sectionName: Int,
-    val sectionIcon: Int,
+    val sectionNameResId: Int,
+    val sectionIconResId: Int,
     val personalInfo: PersonalInfoModel,
 )
 
 data class PersonalInfoModel(
-    val title: Int,
-    val cvLink: Int,
+    val titleResId: Int,
+    val cvLinkResId: Int,
     val fullNameResId: Int,
 )

@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import com.ahmed.a.habib.habibportfolio.domain.use_cases.GetMenuItems
 import com.ahmed.a.habib.habibportfolio.domain.use_cases.GetPersonalInfo
 import com.ahmed.a.habib.habibportfolio.domain.use_cases.GetSummaryInfo
+import com.ahmed.a.habib.habibportfolio.domain.use_cases.GetWorkExperience
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import javax.inject.Inject
@@ -14,6 +15,7 @@ class CvDataViewModel @Inject constructor(
     private val getMenuItems: GetMenuItems,
     private val getSummaryInfo: GetSummaryInfo,
     private val getPersonalInfo: GetPersonalInfo,
+    private val getWorkExperience: GetWorkExperience,
 ) : ViewModel() {
 
     val state = MutableStateFlow(UIStates())
@@ -28,6 +30,7 @@ class CvDataViewModel @Inject constructor(
             UserEvents.GetSummaryContent -> getSummary()
             UserEvents.GetMenuItems -> getMenuItemsList()
             UserEvents.GetPersonalInfo -> getPersonalData()
+            UserEvents.GetWorkExperience -> getWorkExperienceData()
         }
     }
 
@@ -35,24 +38,23 @@ class CvDataViewModel @Inject constructor(
         getSummary()
         getPersonalData()
         getMenuItemsList()
+        getWorkExperienceData()
     }
 
     private fun getMenuItemsList() {
-        reduce {
-            copy(menuItems = getMenuItems())
-        }
+        reduce { copy(menuItems = getMenuItems()) }
     }
 
     private fun getSummary() {
-        reduce {
-            copy(summaryContent = getSummaryInfo())
-        }
+        reduce { copy(summaryContent = getSummaryInfo()) }
     }
 
     private fun getPersonalData() {
-        reduce {
-            copy(personalInfo = getPersonalInfo())
-        }
+        reduce { copy(personalInfo = getPersonalInfo()) }
+    }
+
+    private fun getWorkExperienceData() {
+        reduce { copy(workExperience = getWorkExperience()) }
     }
 
     private fun reduce(updateState: UIStates.() -> UIStates) {

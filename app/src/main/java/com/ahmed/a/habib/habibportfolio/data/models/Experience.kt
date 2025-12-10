@@ -2,15 +2,16 @@ package com.ahmed.a.habib.habibportfolio.data.models
 
 
 data class ExperienceSection(
-    val sectionName: Int,
-    val sectionIcon: Int,
+    val sectionNameResId: Int,
+    val sectionIconResId: Int,
     val experience: List<ExperienceModel>,
 )
 
 data class ExperienceModel(
-    val position: Int,
-    val endDate: Int,
-    val startDate: Int,
-    val companyName: Int,
+    val positionResId: Int,
+    val companyNameResId: Int,
+    val startDateResId: Int,
+    val endDateResId: Int? = null,
+    val responsibilitiesResId: Int,
     val isPresentWorkThere: Boolean,
 )

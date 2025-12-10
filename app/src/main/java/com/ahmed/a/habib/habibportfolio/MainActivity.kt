@@ -39,10 +39,14 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.ahmed.a.habib.habibportfolio.presentation.CvDataViewModel
+import com.ahmed.a.habib.habibportfolio.presentation.experience.ExperienceScreen
 import com.ahmed.a.habib.habibportfolio.presentation.home.HomeScreen
 import com.ahmed.a.habib.habibportfolio.presentation.home.getWelcomeMsg
 import com.ahmed.a.habib.habibportfolio.presentation.side_menu.SideMenu
 import com.ahmed.a.habib.habibportfolio.presentation.summary.SummaryScreen
+import com.ahmed.a.habib.habibportfolio.utils.experience_screen
+import com.ahmed.a.habib.habibportfolio.utils.home_screen
+import com.ahmed.a.habib.habibportfolio.utils.summary_screen
 import com.ahmed.a.habib.habibportfolio.utils.theme.HabibPortfolioTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -60,12 +64,13 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun MainApp(viewModel: CvDataViewModel = hiltViewModel()) {
 
+    val context = LocalContext.current
+
     val state by viewModel.state.collectAsState()
-    val summaryContent = state.summaryContent
     val menuItems = state.menuItems
     val personalInfo = state.personalInfo
-
-    val context = LocalContext.current
+    val summaryContent = state.summaryContent
+    val workExperience = state.workExperience
 
     var isMenuOpen by remember { mutableStateOf(false) }
     val transition = updateTransition(targetState = isMenuOpen)
@@ -142,6 +147,10 @@ fun MainApp(viewModel: CvDataViewModel = hiltViewModel()) {
                         summaryContent = summaryContent,
                         welcomeMessage = context.getWelcomeMsg(personalInfo?.fullNameResId),
                     )
+                }
+
+                composable(experience_screen) {
+                    ExperienceScreen(experience = workExperience)
                 }
             }
         }

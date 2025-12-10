@@ -21,44 +21,44 @@ class GetMenuItems @Inject constructor(private val repo: CvDataRepo) {
 
         val home = MenuItemDto(
             navigator = HomeNavigator(),
-            icon = cvData.home.sectionIcon,
-            title = cvData.home.sectionName
+            icon = cvData.home.sectionIconResId,
+            title = cvData.home.sectionNameResId
         )
 
         val summary = MenuItemDto(
             navigator = SummaryNavigator(),
-            icon = cvData.summary.sectionIcon,
-            title = cvData.summary.sectionName
+            icon = cvData.summary.sectionIconResId,
+            title = cvData.summary.sectionNameResId
         )
 
         val experience = MenuItemDto(
             navigator = ExperienceNavigator(),
-            icon = cvData.experience.sectionIcon,
-            title = cvData.experience.sectionName
+            icon = cvData.experience.sectionIconResId,
+            title = cvData.experience.sectionNameResId
         )
 
         val projects = MenuItemDto(
             navigator = ProjectsNavigator(),
-            icon = cvData.projects.sectionIcon,
-            title = cvData.projects.sectionName
+            icon = cvData.projects.sectionIconResId,
+            title = cvData.projects.sectionNameResId
         )
 
         val skills = MenuItemDto(
             navigator = SkillsNavigator(),
-            icon = cvData.skills.sectionIcon,
-            title = cvData.skills.sectionName
+            icon = cvData.skills.sectionIconResId,
+            title = cvData.skills.sectionNameResId
         )
 
         val certifications = MenuItemDto(
             navigator = CertificatesNavigator(),
-            icon = cvData.certificates.sectionIcon,
-            title = cvData.certificates.sectionName
+            icon = cvData.certificates.sectionIconResId,
+            title = cvData.certificates.sectionNameResId
         )
 
         val education = MenuItemDto(
             navigator = EducationNavigator(),
-            icon = cvData.education.sectionIcon,
-            title = cvData.education.sectionName
+            icon = cvData.education.sectionIconResId,
+            title = cvData.education.sectionNameResId
         )
 
         list.add(home)

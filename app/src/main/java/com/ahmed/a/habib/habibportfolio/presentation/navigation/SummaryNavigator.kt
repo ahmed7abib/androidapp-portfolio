@@ -1,7 +1,7 @@
 package com.ahmed.a.habib.habibportfolio.presentation.navigation
 
 import androidx.navigation.NavHostController
-import com.ahmed.a.habib.habibportfolio.summary_screen
+import com.ahmed.a.habib.habibportfolio.utils.summary_screen
 
 
 class SummaryNavigator : INavigator {

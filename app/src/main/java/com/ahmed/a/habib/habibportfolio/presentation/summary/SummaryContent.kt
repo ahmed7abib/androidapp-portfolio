@@ -26,8 +26,8 @@ fun SummaryScreen(summaryContent: SummaryContent?, welcomeMessage: String) {
 
     if (summaryContent == null) return
 
-    val summaryResId = summaryContent.fullSummary
-    val targetResId = summaryContent.targetToBold
+    val summaryResId = summaryContent.fullSummaryResId
+    val targetResId = summaryContent.targetToBoldResId
 
     val targetStr = stringResource(targetResId)
     val fullTextStr = stringResource(summaryResId)

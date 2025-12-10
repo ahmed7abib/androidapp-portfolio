@@ -1,4 +1,4 @@
-package com.ahmed.a.habib.habibportfolio
+package com.ahmed.a.habib.habibportfolio.utils
 
 
 const val home_screen = "HOME_SCREEN"
