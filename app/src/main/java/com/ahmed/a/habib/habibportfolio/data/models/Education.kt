@@ -8,8 +8,9 @@ data class EducationSection(
 )
 
 data class EducationModel(
-    val degreeResId: Int,
+    val countryResId: Int,
+    val universityResId: Int,
     val studyDateResId: Int,
-    val facultyNameResId: Int,
-    val universityNameResId: Int,
+    val educationFieldResId: Int,
+    val educationDegreeResId: Int,
 )

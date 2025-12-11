@@ -1,8 +1,8 @@
-package com.ahmed.a.habib.habibportfolio.presentation.projects
+package com.ahmed.a.habib.habibportfolio.presentation.education
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -19,25 +19,25 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.ahmed.a.habib.habibportfolio.R
-import com.ahmed.a.habib.habibportfolio.data.models.ProjectModel
-import com.ahmed.a.habib.habibportfolio.presentation.shared.SectionHeader
+import com.ahmed.a.habib.habibportfolio.data.models.EducationModel
 import com.ahmed.a.habib.habibportfolio.presentation.shared.RoundedTextBox
+import com.ahmed.a.habib.habibportfolio.presentation.shared.SectionHeader
+import com.ahmed.a.habib.habibportfolio.utils.commonUI.HorizontalSpace
 import com.ahmed.a.habib.habibportfolio.utils.commonUI.VerticalSpace
 import com.ahmed.a.habib.habibportfolio.utils.commonUI.bold
-import com.ahmed.a.habib.habibportfolio.utils.commonUI.regular
+import com.ahmed.a.habib.habibportfolio.utils.commonUI.medium
 import com.ahmed.a.habib.habibportfolio.utils.theme.DarkBlue
 import com.ahmed.a.habib.habibportfolio.utils.theme.LightGray
 import com.ahmed.a.habib.habibportfolio.utils.theme.LightGray2
 
 @Composable
-fun ProjectsScreen(proModels: List<ProjectModel>) {
+fun EducationScreen(educations: List<EducationModel>) {
 
-    if (proModels.isEmpty()) return
+    if (educations.isEmpty()) return
 
     Column(
         modifier = Modifier
@@ -46,7 +46,7 @@ fun ProjectsScreen(proModels: List<ProjectModel>) {
             .padding(24.dp)
     ) {
         SectionHeader(
-            title = stringResource(R.string.projects),
+            title = stringResource(R.string.education),
             modifier = Modifier
                 .wrapContentSize()
                 .align(Alignment.CenterHorizontally)
@@ -55,13 +55,13 @@ fun ProjectsScreen(proModels: List<ProjectModel>) {
         LazyColumn(
             modifier = Modifier.fillMaxSize()
         ) {
-            itemsIndexed(proModels) { _, item -> ProjectItem(item) }
+            itemsIndexed(educations) { _, item -> EducationItem(item) }
         }
     }
 }
 
 @Composable
-private fun ProjectItem(item: ProjectModel) {
+private fun EducationItem(item: EducationModel) {
 
     Card(
         shape = RoundedCornerShape(16.dp),
@@ -82,18 +82,17 @@ private fun ProjectItem(item: ProjectModel) {
                 .padding(16.dp),
             horizontalAlignment = Alignment.Start
         ) {
-            Image(
-                contentDescription = null,
-                modifier = Modifier.fillMaxWidth(),
-                contentScale = ContentScale.FillBounds,
-                painter = painterResource(id = item.imageResId)
+
+            Text(
+                stringResource(item.educationDegreeResId),
+                style = bold(fontColor = Color.Black, fontSize = 18.sp)
             )
 
             VerticalSpace(8.dp)
 
             Text(
-                style = bold(fontColor = Color.Black),
-                text = stringResource(item.projectNameResId)
+                stringResource(item.educationFieldResId),
+                style = medium(fontColor = Color.Gray, fontSize = 16.sp)
             )
 
             VerticalSpace(8.dp)
@@ -102,16 +101,34 @@ private fun ProjectItem(item: ProjectModel) {
                 modifier = Modifier
                     .wrapContentSize()
                     .clip(RoundedCornerShape(12.dp))
-                    .background(DarkBlue),
-                text = stringResource(item.programingLangResId)
+                    .background(DarkBlue)
+                    .padding(4.dp),
+                text = stringResource(item.studyDateResId)
             )
 
             VerticalSpace(8.dp)
 
-            Text(
-                style = regular(fontColor = Color.Gray),
-                text = stringResource(item.descriptionResId)
-            )
+            Row {
+                RoundedTextBox(
+                    modifier = Modifier
+                        .wrapContentSize()
+                        .clip(RoundedCornerShape(12.dp))
+                        .background(DarkBlue)
+                        .padding(4.dp),
+                    text = stringResource(item.universityResId)
+                )
+
+                HorizontalSpace(4.dp)
+
+                RoundedTextBox(
+                    modifier = Modifier
+                        .wrapContentSize()
+                        .clip(RoundedCornerShape(12.dp))
+                        .background(DarkBlue)
+                        .padding(4.dp),
+                    text = stringResource(item.countryResId)
+                )
+            }
         }
     }
 }

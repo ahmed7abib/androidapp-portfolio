@@ -8,6 +8,8 @@ data class CertificateSection(
 )
 
 data class CertificateModel(
+    val dateResId: Int,
     val imageResId: Int,
+    val industryResId: Int,
     val certificateNameResId: Int,
 )

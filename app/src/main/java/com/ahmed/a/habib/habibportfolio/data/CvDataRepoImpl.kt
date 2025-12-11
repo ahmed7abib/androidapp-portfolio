@@ -1,8 +1,10 @@
 package com.ahmed.a.habib.habibportfolio.data
 
 import com.ahmed.a.habib.habibportfolio.R
+import com.ahmed.a.habib.habibportfolio.data.models.CertificateModel
 import com.ahmed.a.habib.habibportfolio.data.models.CertificateSection
 import com.ahmed.a.habib.habibportfolio.data.models.CvModel
+import com.ahmed.a.habib.habibportfolio.data.models.EducationModel
 import com.ahmed.a.habib.habibportfolio.data.models.EducationSection
 import com.ahmed.a.habib.habibportfolio.data.models.ExperienceModel
 import com.ahmed.a.habib.habibportfolio.data.models.ExperienceSection
@@ -132,19 +134,96 @@ class CvDataRepoImpl : CvDataRepo {
         val skills = SkillsSection(
             sectionNameResId = R.string.skills,
             sectionIconResId = R.drawable.home,
-            skillsResId = 1 to emptyList()
-        )
-
-        val education = EducationSection(
-            sectionNameResId = R.string.education,
-            sectionIconResId = R.drawable.home,
-            education = emptyList()
+            skillsResId = listOf(
+                R.string.programming_language to listOf(
+                    R.string.kotlin,
+                    R.string.java,
+                    R.string.flutter
+                ),
+                R.string.core_android to listOf(
+                    R.string.mxl,
+                    R.string.android_sdk,
+                    R.string.jetpack_compose,
+                ),
+                R.string.arc_and_design to listOf(
+                    R.string.mvvm,
+                    R.string.mvi,
+                    R.string.mvp,
+                    R.string.clean_arc,
+                    R.string.app_modularization
+                ), R.string.jetpack_libs to listOf(
+                    R.string.view_model,
+                    R.string.data_binding,
+                    R.string.lifecycle,
+                    R.string.navigation,
+                    R.string.room
+                ), R.string.networking to listOf(
+                    R.string.retrofit,
+                    R.string.ktor,
+                    R.string.rest_api,
+                    R.string.graphql
+                ), R.string.dependency_injection to listOf(
+                    R.string.hilt,
+                    R.string.koin,
+                ), R.string.reactive_programming to listOf(
+                    R.string.coroutines,
+                    R.string.flow,
+                    R.string.rx_java,
+                    R.string.live_data,
+                ), R.string.other_tchnologies to listOf(
+                    R.string.firebase,
+                    R.string.google_maps,
+                    R.string.nfc,
+                    R.string.git,
+                    R.string.unit_test,
+                    R.string.rsa_aes
+                )
+            )
         )
 
         val certificates = CertificateSection(
             sectionNameResId = R.string.certificates,
             sectionIconResId = R.drawable.home,
-            certificates = emptyList()
+            certificates = listOf(
+                CertificateModel(
+                    dateResId = R.string.spring_certificate_date,
+                    imageResId = R.drawable.cer_spring,
+                    industryResId = R.string.udemy,
+                    certificateNameResId = R.string.spring_certificate_name
+                ),
+                CertificateModel(
+                    dateResId = R.string.nano_degree_certificate_date,
+                    imageResId = R.drawable.cer_nanodegree,
+                    industryResId = R.string.udacity,
+                    certificateNameResId = R.string.nano_degree_certificate_name
+                ),
+                CertificateModel(
+                    dateResId = R.string.design_patterns_certificate_date,
+                    imageResId = R.drawable.cer_design_patterns,
+                    industryResId = R.string.udemy,
+                    certificateNameResId = R.string.design_patterns_certificate_name
+                ),
+                CertificateModel(
+                    dateResId = R.string.testing_certificate_date,
+                    imageResId = R.drawable.cer_spring,
+                    industryResId = R.string.udemy,
+                    certificateNameResId = R.string.testing_certificate_name
+                )
+            )
+        )
+
+        val education = EducationSection(
+            sectionNameResId = R.string.education,
+            sectionIconResId = R.drawable.home,
+            education = listOf(
+                EducationModel(
+                    countryResId = R.string.egypt,
+                    educationFieldResId = R.string.cs_field,
+                    educationDegreeResId = R.string.cs_degree,
+                    universityResId = R.string.university_benha,
+                    studyDateResId = R.string.study_date
+                )
+            )
         )
 
         return CvModel(

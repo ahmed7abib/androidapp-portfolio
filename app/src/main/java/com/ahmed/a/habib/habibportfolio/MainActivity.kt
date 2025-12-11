@@ -38,14 +38,20 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.ahmed.a.habib.habibportfolio.presentation.CvDataViewModel
+import com.ahmed.a.habib.habibportfolio.presentation.certificates.CertificatesScreen
+import com.ahmed.a.habib.habibportfolio.presentation.education.EducationScreen
 import com.ahmed.a.habib.habibportfolio.presentation.experience.ExperienceScreen
 import com.ahmed.a.habib.habibportfolio.presentation.home.HomeScreen
 import com.ahmed.a.habib.habibportfolio.presentation.projects.ProjectsScreen
 import com.ahmed.a.habib.habibportfolio.presentation.side_menu.SideMenu
+import com.ahmed.a.habib.habibportfolio.presentation.skills.SkillsScreen
 import com.ahmed.a.habib.habibportfolio.presentation.summary.SummaryScreen
+import com.ahmed.a.habib.habibportfolio.utils.certificates_screen
+import com.ahmed.a.habib.habibportfolio.utils.education_screen
 import com.ahmed.a.habib.habibportfolio.utils.experience_screen
 import com.ahmed.a.habib.habibportfolio.utils.home_screen
 import com.ahmed.a.habib.habibportfolio.utils.projects_screen
+import com.ahmed.a.habib.habibportfolio.utils.skills_screen
 import com.ahmed.a.habib.habibportfolio.utils.summary_screen
 import com.ahmed.a.habib.habibportfolio.utils.theme.HabibPortfolioTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -66,8 +72,11 @@ fun MainApp(viewModel: CvDataViewModel = hiltViewModel()) {
 
     val state by viewModel.state.collectAsState()
     val projects = state.projects
+    val skills = state.skills
     val menuItems = state.menuItems
+    val educations = state.educations
     val personalInfo = state.personalInfo
+    val certificates = state.certificates
     val summaryContent = state.summaryContent
     val workExperience = state.workExperience
 
@@ -138,20 +147,22 @@ fun MainApp(viewModel: CvDataViewModel = hiltViewModel()) {
                     }
             ) {
                 composable(home_screen) {
-                    HomeScreen(personalInfo = personalInfo) { isMenuOpen = true }
+                    HomeScreen(personalInfo = personalInfo) {
+                        isMenuOpen = true
+                    }
                 }
 
-                composable(summary_screen) {
-                    SummaryScreen(summaryContent = summaryContent)
-                }
+                composable(experience_screen) { ExperienceScreen(experience = workExperience) }
 
-                composable(experience_screen) {
-                    ExperienceScreen(experience = workExperience)
-                }
+                composable(summary_screen) { SummaryScreen(summaryContent = summaryContent) }
 
-                composable(projects_screen) {
-                    ProjectsScreen(proModels = projects)
-                }
+                composable(projects_screen) { ProjectsScreen(proModels = projects) }
+
+                composable(skills_screen) { SkillsScreen(skills = skills) }
+
+                composable(certificates_screen) { CertificatesScreen(certificates = certificates) }
+
+                composable(education_screen) { EducationScreen(educations = educations) }
             }
         }
     }
