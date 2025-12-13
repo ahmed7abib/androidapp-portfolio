@@ -7,10 +7,12 @@ import com.ahmed.a.habib.habibportfolio.data.models.PersonalInfoModel
 import com.ahmed.a.habib.habibportfolio.data.models.ProjectModel
 import com.ahmed.a.habib.habibportfolio.data.models.SummaryContent
 import com.ahmed.a.habib.habibportfolio.domain.models.MenuItemDto
+import com.ahmed.a.habib.habibportfolio.domain.models.SocialDto
 
 data class UIStates(
     val summaryContent: SummaryContent? = null,
     val personalInfo: PersonalInfoModel? = null,
+    val socialMedia: List<SocialDto> = emptyList(),
     val menuItems: List<MenuItemDto> = emptyList(),
     val projects: List<ProjectModel> = emptyList(),
     val educations: List<EducationModel> = emptyList(),

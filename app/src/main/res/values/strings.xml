@@ -115,6 +115,13 @@
     <string name="cs_field">Faculty of computer science and information systems</string>
     <string name="cs_degree">Bachelor\'s degree in Computers and Information Systems</string>
     <string name="study_date">2014 - 2018</string>
+    <string name="ahmed_a_habib2020_gmail_com">ahmed.a.habib2020@gmail.com</string>
+    <string name="_201559955496">+201559955496</string>
+    <string name="linked_in_link">https://www.linkedin.com/in/ahmed-habib-3a0a45164/</string>
+    <string name="github_link">https://github.com/ahmed7abib</string>
+    <string name="hello_i_want_to_contact_you">Hello, I want to contact you.</string>
+    <string name="invalid_whatsapp_number">Invalid Whatsapp Number.</string>
+    <string name="invalid_email">Invalid Email.</string>
 
     <array name="senior_responsibilities">
         <item>Led the development of MeterOps and Azka Pay Apps from concept to release, following Clean Architecture principles and software engineering best practices</item>

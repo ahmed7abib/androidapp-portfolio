@@ -8,5 +8,6 @@ data class CvModel(
     val projects: ProjectsSection,
     val education: EducationSection,
     val experience: ExperienceSection,
+    val socialMedia: SocialMediaModel,
     val certificates: CertificateSection,
 )

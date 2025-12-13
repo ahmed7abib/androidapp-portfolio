@@ -8,13 +8,17 @@ import com.ahmed.a.habib.habibportfolio.data.models.EducationModel
 import com.ahmed.a.habib.habibportfolio.data.models.EducationSection
 import com.ahmed.a.habib.habibportfolio.data.models.ExperienceModel
 import com.ahmed.a.habib.habibportfolio.data.models.ExperienceSection
+import com.ahmed.a.habib.habibportfolio.data.models.Email
 import com.ahmed.a.habib.habibportfolio.data.models.HomeSection
 import com.ahmed.a.habib.habibportfolio.data.models.PersonalInfoModel
 import com.ahmed.a.habib.habibportfolio.data.models.ProjectModel
 import com.ahmed.a.habib.habibportfolio.data.models.ProjectsSection
 import com.ahmed.a.habib.habibportfolio.data.models.SkillsSection
+import com.ahmed.a.habib.habibportfolio.data.models.SocialApplication
+import com.ahmed.a.habib.habibportfolio.data.models.SocialMediaModel
 import com.ahmed.a.habib.habibportfolio.data.models.SummaryContent
 import com.ahmed.a.habib.habibportfolio.data.models.SummarySection
+import com.ahmed.a.habib.habibportfolio.data.models.Whatsapp
 import com.ahmed.a.habib.habibportfolio.domain.CvDataRepo
 
 class CvDataRepoImpl : CvDataRepo {
@@ -33,7 +37,7 @@ class CvDataRepoImpl : CvDataRepo {
 
         val summary = SummarySection(
             sectionNameResId = R.string.summary_label,
-            sectionIconResId = R.drawable.home,
+            sectionIconResId = R.drawable.about,
             summaryContent = SummaryContent(
                 fullSummaryResId = R.string.summary,
                 targetToBoldResId = R.string.target_to_bold
@@ -42,7 +46,7 @@ class CvDataRepoImpl : CvDataRepo {
 
         val experience = ExperienceSection(
             sectionNameResId = R.string.experience,
-            sectionIconResId = R.drawable.home,
+            sectionIconResId = R.drawable.experience,
             experience = arrayListOf(
                 ExperienceModel(
                     isPresentWorkThere = true,
@@ -72,7 +76,7 @@ class CvDataRepoImpl : CvDataRepo {
 
         val projects = ProjectsSection(
             sectionNameResId = R.string.projects,
-            sectionIconResId = R.drawable.home,
+            sectionIconResId = R.drawable.project,
             projects = listOf(
                 ProjectModel(
                     imageResId = R.drawable.meterops,
@@ -133,7 +137,7 @@ class CvDataRepoImpl : CvDataRepo {
 
         val skills = SkillsSection(
             sectionNameResId = R.string.skills,
-            sectionIconResId = R.drawable.home,
+            sectionIconResId = R.drawable.skills,
             skillsResId = listOf(
                 R.string.programming_language to listOf(
                     R.string.kotlin,
@@ -183,7 +187,7 @@ class CvDataRepoImpl : CvDataRepo {
 
         val certificates = CertificateSection(
             sectionNameResId = R.string.certificates,
-            sectionIconResId = R.drawable.home,
+            sectionIconResId = R.drawable.certificate,
             certificates = listOf(
                 CertificateModel(
                     dateResId = R.string.spring_certificate_date,
@@ -214,7 +218,7 @@ class CvDataRepoImpl : CvDataRepo {
 
         val education = EducationSection(
             sectionNameResId = R.string.education,
-            sectionIconResId = R.drawable.home,
+            sectionIconResId = R.drawable.education,
             education = listOf(
                 EducationModel(
                     countryResId = R.string.egypt,
@@ -226,6 +230,27 @@ class CvDataRepoImpl : CvDataRepo {
             )
         )
 
+        val socialMediaModel = SocialMediaModel(
+            email = Email(
+                iconRes = R.drawable.gmail,
+                email = R.string.ahmed_a_habib2020_gmail_com
+            ),
+            whatsapp = Whatsapp(
+                iconRes = R.drawable.whatsapp,
+                number = R.string._201559955496
+            ),
+            socialApp = listOf(
+                SocialApplication(
+                    iconRes = R.drawable.linked_in,
+                    socialLink = R.string.linked_in_link
+                ),
+                SocialApplication(
+                    iconRes = R.drawable.github,
+                    socialLink = R.string.github_link
+                )
+            )
+        )
+
         return CvModel(
             home = home,
             skills = skills,
@@ -233,7 +258,8 @@ class CvDataRepoImpl : CvDataRepo {
             projects = projects,
             education = education,
             experience = experience,
-            certificates = certificates
+            certificates = certificates,
+            socialMedia = socialMediaModel
         )
     }
 }

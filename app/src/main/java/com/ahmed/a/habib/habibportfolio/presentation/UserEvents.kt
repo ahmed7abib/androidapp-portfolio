@@ -6,6 +6,7 @@ sealed class UserEvents {
     object GetProjects : UserEvents()
     object GetMenuItems : UserEvents()
     object GetEducations : UserEvents()
+    object GetSocialMedia : UserEvents()
     object GetCertificates : UserEvents()
     object GetPersonalInfo : UserEvents()
     object GetSummaryContent : UserEvents()

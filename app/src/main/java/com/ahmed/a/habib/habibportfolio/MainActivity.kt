@@ -75,6 +75,7 @@ fun MainApp(viewModel: CvDataViewModel = hiltViewModel()) {
     val skills = state.skills
     val menuItems = state.menuItems
     val educations = state.educations
+    val socialMediaModel = state.socialMedia
     val personalInfo = state.personalInfo
     val certificates = state.certificates
     val summaryContent = state.summaryContent
@@ -122,6 +123,7 @@ fun MainApp(viewModel: CvDataViewModel = hiltViewModel()) {
                 SideMenu(
                     offsetX = offsetX.value,
                     menuItems = menuItems,
+                    socialMedia = socialMediaModel,
                     modifier = Modifier
                         .fillMaxSize()
                         .background(Color.White)

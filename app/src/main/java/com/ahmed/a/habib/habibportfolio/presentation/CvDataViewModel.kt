@@ -7,6 +7,7 @@ import com.ahmed.a.habib.habibportfolio.domain.use_cases.GetMenuItems
 import com.ahmed.a.habib.habibportfolio.domain.use_cases.GetPersonalInfo
 import com.ahmed.a.habib.habibportfolio.domain.use_cases.GetProjects
 import com.ahmed.a.habib.habibportfolio.domain.use_cases.GetSkills
+import com.ahmed.a.habib.habibportfolio.domain.use_cases.GetSocialMedia
 import com.ahmed.a.habib.habibportfolio.domain.use_cases.GetSummaryInfo
 import com.ahmed.a.habib.habibportfolio.domain.use_cases.GetWorkExperience
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -21,6 +22,7 @@ class CvDataViewModel @Inject constructor(
     private val getMenuItems: GetMenuItems,
     private val getEducation: GetEducations,
     private val getSummaryInfo: GetSummaryInfo,
+    private val getSocialMedia: GetSocialMedia,
     private val getPersonalInfo: GetPersonalInfo,
     private val getCertificates: GetCertificates,
     private val getWorkExperience: GetWorkExperience,
@@ -41,6 +43,7 @@ class CvDataViewModel @Inject constructor(
             UserEvents.GetMenuItems -> getMenuItemsList()
             UserEvents.GetEducations -> getEducationData()
             UserEvents.GetPersonalInfo -> getPersonalData()
+            UserEvents.GetSocialMedia -> getSocialMediaData()
             UserEvents.GetCertificates -> getCertificatesData()
             UserEvents.GetWorkExperience -> getWorkExperienceData()
         }
@@ -53,8 +56,13 @@ class CvDataViewModel @Inject constructor(
         getProjectsData()
         getEducationData()
         getMenuItemsList()
+        getSocialMediaData()
         getCertificatesData()
         getWorkExperienceData()
+    }
+
+    private fun getSocialMediaData() {
+        reduce { copy(socialMedia = getSocialMedia()) }
     }
 
     private fun getEducationData() {
