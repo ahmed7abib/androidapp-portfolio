@@ -21,6 +21,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.ahmed.a.habib.habibportfolio.R
 import com.ahmed.a.habib.habibportfolio.presentation.shared.RoundedTextBox
 import com.ahmed.a.habib.habibportfolio.presentation.shared.SectionHeader
@@ -48,7 +49,7 @@ fun SkillsScreen(skills: List<Pair<Int, List<Int>>>) {
                 .wrapContentSize()
                 .align(Alignment.CenterHorizontally)
         )
-        
+
         LazyColumn(
             modifier = Modifier.fillMaxSize()
         ) {
@@ -80,7 +81,7 @@ private fun SkillCategory(item: Pair<Int, List<Int>>) {
             horizontalAlignment = Alignment.Start
         ) {
             Text(
-                style = bold(fontColor = Color.Black),
+                style = bold(fontColor = Color.Black, fontSize = 20.sp),
                 text = stringResource(item.first)
             )
 

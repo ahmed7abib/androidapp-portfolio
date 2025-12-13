@@ -6,6 +6,7 @@ import android.net.Uri
 import android.widget.Toast
 import androidx.browser.customtabs.CustomTabsIntent
 import java.net.URLEncoder
+import androidx.core.net.toUri
 
 
 fun Context.showToast(message: String) {
@@ -16,7 +17,7 @@ fun Context.openWebPage(url: String) {
     CustomTabsIntent.Builder()
         .setShowTitle(true)
         .build()
-        .launchUrl(this, Uri.parse(url))
+        .launchUrl(this, url.toUri())
 }
 
 fun Context.openWhatsapp(number: String, message: String = "Hello Dear.") {
@@ -31,7 +32,7 @@ fun Context.openWhatsapp(number: String, message: String = "Hello Dear.") {
 fun Context.openGmail(email: String) {
     startActivity(
         Intent(Intent.ACTION_SENDTO).apply {
-            Uri.parse(email).also { data = it }
+            data = "mailto:$email".toUri()
         }
     )
 }

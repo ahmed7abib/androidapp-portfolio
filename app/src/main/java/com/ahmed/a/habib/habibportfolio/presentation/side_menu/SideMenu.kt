@@ -19,10 +19,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.platform.LocalWindowInfo
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.constraintlayout.compose.ConstraintLayout
@@ -56,15 +58,12 @@ fun SideMenu(
         ) = createRefs()
 
         LazyColumn(
-            verticalArrangement = Arrangement.Top,
-            modifier = Modifier
-                .constrainAs(menu) {
-                    verticalBias = 0f
-                    top.linkTo(parent.top)
-                    bottom.linkTo(social.top)
-                    start.linkTo(parent.start)
-                }
-        ) {
+            verticalArrangement = Arrangement.Top, modifier = Modifier.constrainAs(menu) {
+                verticalBias = 0f
+                top.linkTo(parent.top)
+                bottom.linkTo(social.top)
+                start.linkTo(parent.start)
+            }) {
             items(menuItems) { item ->
                 DrawMenuItem(
                     offsetX = offsetX,
@@ -83,8 +82,7 @@ fun SideMenu(
                 .constrainAs(social) {
                     start.linkTo(parent.start)
                     bottom.linkTo(parent.bottom)
-                },
-            socialMedia = socialMedia
+                }, socialMedia = socialMedia
         )
     }
 }
@@ -96,19 +94,13 @@ fun DrawMenuItem(
     offsetX: Float,
     onClick: () -> Unit,
 ) {
-
-    val config = LocalConfiguration.current
-    val remainingSpace = config.screenWidthDp.dp - offsetX.dp
-
     Column(
         modifier = Modifier
             .fillMaxWidth()
             .padding(
-                start = 16.dp,
-                end = remainingSpace
+                start = 16.dp, end = rememberRemainingSpace(offsetX)
             )
-            .clickable { onClick() },
-        verticalArrangement = Arrangement.Center
+            .clickable { onClick() }, verticalArrangement = Arrangement.Center
     ) {
         Row(
             modifier = Modifier
@@ -125,9 +117,7 @@ fun DrawMenuItem(
             )
 
             Text(
-                text = title,
-                fontSize = 16.sp,
-                color = Color.Black
+                text = title, fontSize = 16.sp, color = Color.Black
             )
         }
 
@@ -148,7 +138,7 @@ private fun SocialMedia(
                 tint = Color.Black,
                 contentDescription = null,
                 modifier = Modifier
-                    .size(30.dp)
+                    .size(24.dp)
                     .clickable {
                         when {
                             item.isEmail == true -> {
@@ -185,4 +175,12 @@ private fun SocialMedia(
             HorizontalSpace(12.dp)
         }
     }
+}
+
+@Composable
+private fun rememberRemainingSpace(offsetX: Float): Dp {
+    val density = LocalDensity.current
+    val windowInfo = LocalWindowInfo.current
+    val screenWidthDp = with(density) { windowInfo.containerSize.width.toDp() }
+    return screenWidthDp - offsetX.dp
 }

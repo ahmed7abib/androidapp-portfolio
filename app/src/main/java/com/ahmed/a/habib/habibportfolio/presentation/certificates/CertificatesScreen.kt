@@ -96,7 +96,7 @@ private fun CertificateItem(item: CertificateModel) {
                 text = stringResource(item.dateResId)
             )
 
-            VerticalSpace(8.dp)
+            VerticalSpace(4.dp)
 
             RoundedTextBox(
                 modifier = Modifier

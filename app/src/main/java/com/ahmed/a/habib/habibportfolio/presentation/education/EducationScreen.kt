@@ -85,7 +85,7 @@ private fun EducationItem(item: EducationModel) {
 
             Text(
                 stringResource(item.educationDegreeResId),
-                style = bold(fontColor = Color.Black, fontSize = 18.sp)
+                style = bold(fontColor = Color.Black)
             )
 
             VerticalSpace(8.dp)

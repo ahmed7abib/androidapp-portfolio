@@ -96,7 +96,7 @@ private fun ProjectItem(item: ProjectModel) {
                 text = stringResource(item.projectNameResId)
             )
 
-            VerticalSpace(8.dp)
+            VerticalSpace(4.dp)
 
             RoundedTextBox(
                 modifier = Modifier
